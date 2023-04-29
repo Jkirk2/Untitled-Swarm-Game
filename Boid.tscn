@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://fumdg8comkc8"]
+
+[ext_resource type="Script" path="res://Boid.gd" id="1_fbae8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6u4to"]
+radius = 50.0
+
+[node name="Node2D" type="Node2D"]
+rotation = 1.5708
+script = ExtResource("1_fbae8")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-8, 8, 8, 8, 0, -8, 0, -8)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6u4to")

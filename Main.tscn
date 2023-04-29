@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqn8eg4cxoy8s"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_xp53b"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(0, -1)
+script = ExtResource("1_xp53b")
