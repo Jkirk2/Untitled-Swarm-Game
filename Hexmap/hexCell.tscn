@@ -1,13 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://82m76u78ol8n"]
+[gd_scene load_steps=4 format=3 uid="uid://82m76u78ol8n"]
 
 [ext_resource type="Script" path="res://Hexmap/hexCell.gd" id="1_5n6vv"]
+
+[sub_resource type="FontFile" id="FontFile_hg651"]
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/15/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
+cache/0/15/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/15/0/kerning_overrides/15/0 = Vector2(0, 0)
+cache/0/15/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/32/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/32/0/kerning_overrides/15/0 = Vector2(0, 0)
+cache/0/32/0/kerning_overrides/32/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dpj6"]
+font = SubResource("FontFile_hg651")
+font_size = 32
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_5n6vv")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 16
+collision_mask = 16
 monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
@@ -21,6 +56,16 @@ default_color = Color(1, 1, 0, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
+
+[node name="Label" type="Label" parent="."]
+offset_left = -39.0
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 21.0
+text = "0"
+label_settings = SubResource("LabelSettings_4dpj6")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

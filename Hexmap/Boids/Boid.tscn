@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://fva5cpubm1ya"]
+[gd_scene load_steps=3 format=3 uid="uid://fva5cpubm1ya"]
 
 [ext_resource type="Script" path="res://Hexmap/Boids/Boid.gd" id="1_8vktv"]
 
-[node name="Node2D" type="Node2D" groups=["Boid"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_gfg4h"]
+radius = 30.0
+
+[node name="Node2D" type="Node2D"]
 rotation = 1.5708
 script = ExtResource("1_8vktv")
 
@@ -17,3 +20,11 @@ platform_on_leave = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
 polygon = PackedVector2Array(-8, 8, 8, 8, 0, -8, 0, -8)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_gfg4h")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

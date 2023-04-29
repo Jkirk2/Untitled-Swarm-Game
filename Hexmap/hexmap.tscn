@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8ufnirxikfgo"]
 
-[ext_resource type="Script" path="res://Core.gd" id="1_qa7c2"]
+[ext_resource type="Script" path="res://Hexmap/Core.gd" id="1_utor7"]
 [ext_resource type="PackedScene" uid="uid://82m76u78ol8n" path="res://Hexmap/hexCell.tscn" id="1_yxiq7"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_chy1v"]
@@ -12,7 +12,7 @@ tile_size = Vector2i(128, 128)
 sources/1 = SubResource("TileSetScenesCollectionSource_chy1v")
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_qa7c2")
+script = ExtResource("1_utor7")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_pd8vd")

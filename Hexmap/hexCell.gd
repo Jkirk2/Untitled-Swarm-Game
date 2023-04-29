@@ -7,10 +7,10 @@ var avg_vel = Vector2(0,0)
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	get_averages()
+	get_node("Label").set_text(str(boids.size()))
 
 
 func get_averages():
@@ -28,8 +28,9 @@ func get_averages():
 
 
 func _on_area_2d_body_entered(boid):
-	boids.append(boid)
+	boids.append(boid.get_parent())
+	
 
 
 func _on_area_2d_body_exited(boid):
-	boids.append(boid)
+	boids.erase(boid.get_parent())
